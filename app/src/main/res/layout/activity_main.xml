@@ -15,4 +15,30 @@
         android:text="Log out"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="655dp" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnCaptureImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etDescription"
+        android:text="Capture" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivPostImage"
+        android:text="Submit" />
+
+    <ImageView
+        android:id="@+id/ivPostImage"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_below="@id/btnCaptureImg"
+        tools:srcCompat="@tools:sample/avatars" />
 </RelativeLayout>
