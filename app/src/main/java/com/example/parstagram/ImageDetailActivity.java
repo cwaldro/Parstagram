@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.parstagram.databinding.ActivityImageDetailBinding;
+import com.parse.ParseFile;
 
 import org.parceler.Parcels;
 
@@ -34,17 +35,15 @@ public class ImageDetailActivity extends AppCompatActivity {
         tvUser = binding.tvUser;
         tvTimestamp = binding.tvTimestamp;
         tvCaption = binding.tvCaption;
-        ivPostDetail = binding.ivPostDetail;
 
-        //post = (Post) Parcels.unwrap(getIntent().getParcelableExtra("post"));
-        tvUser.setText(post.getUser().getUsername());
-        Date createdAt = post.getCreatedAt();
-        String timeAgo = Post.calculateTimeAgo(createdAt);
-        tvTimestamp.setText(timeAgo);
-        tvCaption.setText(post.getDescription());
-        Glide.with(this)
-                .load(post.getImage())
-                .into(ivPostDetail);
+        //receive passed in data
+        String caption = getIntent().getStringExtra("Caption");
+        String Timestamp = getIntent().getStringExtra("Timestamp");
+        String username = getIntent().getStringExtra("User");
+        tvCaption.setText(caption);
+        tvTimestamp.setText(Timestamp);
+        tvUser.setText("@"+ username);
+
     }
 
 }

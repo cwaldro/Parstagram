@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:orientation="vertical">
+    android:layout_margin="8dp">
 
     <TextView
         android:id="@+id/tvUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         tools:text="claire" />
 
     <ImageView
@@ -20,12 +19,48 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="centerCrop"
+        android:layout_below="@id/tvUsername"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="match_parent"
+        android:id="@+id/tvLikes"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ivImage"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="97dp"
+        android:layout_toEndOf="@+id/tvTimeAgo"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:text="244 Likes" />
+
+    <TextView
+        android:id="@+id/tvTimeAgo"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivImage"
+        android:layout_gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:text="2 mins ago" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvLikes"
+        android:layout_marginStart="3dp"
         android:layout_marginBottom="8dp"
+        android:layout_toEndOf="@id/tvCapUser"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         tools:text="caption" />
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/tvCapUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTimeAgo"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="claire" />
+</RelativeLayout>

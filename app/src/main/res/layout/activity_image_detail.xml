@@ -8,42 +8,32 @@
 
     <TextView
         android:id="@+id/tvCaption"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTimestamp"
-        android:layout_alignStart="@id/ivPostDetail"
-        android:layout_marginStart="-1dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="-389dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:textSize="23sp"
         tools:text="I went to the park today with my dog named clifford." />
 
-    <ImageView
-        android:id="@+id/ivPostDetail"
-        android:layout_width="319dp"
-        android:layout_height="327dp"
-        android:layout_centerInParent="true"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="250dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/tvUser"
-        android:layout_width="321dp"
-        android:layout_height="33dp"
-        android:layout_above="@+id/ivPostDetail"
-        android:layout_alignStart="@id/ivPostDetail"
-        android:layout_marginStart="-3dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/tvCaption"
+        android:layout_above="@id/tvCaption"
         android:textSize="23sp"
+        android:textStyle="bold"
         tools:text="clairewaldron" />
 
     <TextView
         android:id="@+id/tvTimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivPostDetail"
-        android:layout_alignStart="@id/ivPostDetail"
-        android:textSize="23sp"
+        android:layout_alignEnd="@id/tvCaption"
+        android:layout_above="@id/tvCaption"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@id/tvUser"
+        android:textSize="20sp"
         tools:text="30 seconds ago" />
 </RelativeLayout>

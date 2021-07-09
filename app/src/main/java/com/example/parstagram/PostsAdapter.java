@@ -2,6 +2,8 @@ package com.example.parstagram;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,10 @@ import com.bumptech.glide.Glide;
 import com.example.parstagram.fragments.FeedFragment;
 import com.parse.ParseFile;
 
+import org.parceler.Parcels;
+
+import java.io.ByteArrayOutputStream;
+import java.util.Date;
 import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
@@ -64,23 +70,31 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private TextView tvUsername;
         private ImageView ivImage;
         private TextView tvDescription;
+        private TextView tvTimeAgo;
+        private TextView tvCapUser;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            tvTimeAgo = itemView.findViewById((R.id.tvTimeAgo));
+            tvCapUser = itemView.findViewById(R.id.tvCapUser);
             itemView.setOnClickListener(this);
         }
 
         public void bind(Post post) {
             // Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
-            tvUsername.setText(post.getUser().getUsername());
+            tvUsername.setText("@" + post.getUser().getUsername());
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
             }
+            Date createdAt = post.getCreatedAt();
+            String timeAgo = Post.calculateTimeAgo(createdAt);
+            tvTimeAgo.setText(timeAgo);
+            tvCapUser.setText(post.getUser().getUsername());
         }
         public void onClick(View v) {
             //get item position
@@ -91,8 +105,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 Post post = posts.get(pos);
                 //step 2: create intent for new activity
                 Intent intent = new Intent(context, ImageDetailActivity.class);
-                //serialize movie using parceler using short name as key
-                //intent.putExtra("post", Parcels.wrap(post));
+                //serialize pass data to new intent
+                intent.putExtra("Caption", post.getDescription());
+                Date createdAt = post.getCreatedAt();
+                String timeAgo = Post.calculateTimeAgo(createdAt);
+                intent.putExtra("Timestamp", timeAgo);
+                intent.putExtra("User", post.getUser().getUsername());
                 //show activity
                 context.startActivity(intent);
             }
