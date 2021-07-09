@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImageDetailActivity">
+
+    <TextView
+        android:id="@+id/tvCaption"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTimestamp"
+        android:layout_alignStart="@id/ivPostDetail"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="-389dp"
+        android:textSize="23sp"
+        tools:text="I went to the park today with my dog named clifford." />
+
+    <ImageView
+        android:id="@+id/ivPostDetail"
+        android:layout_width="319dp"
+        android:layout_height="327dp"
+        android:layout_centerInParent="true"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="250dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="321dp"
+        android:layout_height="33dp"
+        android:layout_above="@+id/ivPostDetail"
+        android:layout_alignStart="@id/ivPostDetail"
+        android:layout_marginStart="-3dp"
+        android:layout_marginBottom="4dp"
+        android:textSize="23sp"
+        tools:text="clairewaldron" />
+
+    <TextView
+        android:id="@+id/tvTimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivPostDetail"
+        android:layout_alignStart="@id/ivPostDetail"
+        android:textSize="23sp"
+        tools:text="30 seconds ago" />
+</RelativeLayout>
