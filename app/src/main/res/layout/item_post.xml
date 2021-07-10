@@ -25,19 +25,19 @@
     <TextView
         android:id="@+id/tvLikes"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_below="@id/ivImage"
         android:layout_alignParentRight="true"
         android:layout_marginStart="97dp"
         android:layout_toEndOf="@+id/tvTimeAgo"
+        android:text="244 Likes"
         android:textAlignment="viewEnd"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:text="244 Likes" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <TextView
         android:id="@+id/tvTimeAgo"
-        android:layout_width="148dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
         android:layout_below="@id/ivImage"
         android:layout_gravity="left"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -35,8 +36,6 @@ import com.parse.SaveCallback;
 import java.io.File;
 
 import static android.app.Activity.RESULT_OK;
-import static com.example.parstagram.R.id.btnCaptureImg;
-import static com.example.parstagram.R.id.btnFeed;
 import static com.example.parstagram.R.id.btnLogout;
 import static com.example.parstagram.R.id.btnSubmit;
 import static com.example.parstagram.R.id.etDescription;
@@ -45,10 +44,8 @@ import static com.example.parstagram.R.id.ivPostImage;
 public class CaptureFragment extends Fragment {
 
     private EditText etDescription;
-    private Button btnCaptureImg;
     private ImageView ivPostImage;
     private Button btnSubmit;
-    private Button btnFeed;
 
     public static final String TAG = "CaptureFragment";
 
@@ -58,7 +55,7 @@ public class CaptureFragment extends Fragment {
     public String photoFileName = "photo.jpg";
     File photoFile;
 
-    FragmentCaptureBinding binding;
+    //FragmentCaptureBinding binding;
 
     public CaptureFragment() {
         // Required empty public constructor
@@ -67,21 +64,24 @@ public class CaptureFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentCaptureBinding.inflate(getLayoutInflater(), container, false);
-        View view = binding.getRoot();
-
-        // Inflate the layout for this fragment
-        return view;
+//        binding = FragmentCaptureBinding.inflate(getLayoutInflater(), container, false);
+//        View view = binding.getRoot();
+//
+//        // Inflate the layout for this fragment
+//        return view;
+        return inflater.inflate(R.layout.fragment_capture, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        etDescription = binding.etDescription;
-        btnCaptureImg = binding.btnCaptureImg;
-        ivPostImage = binding.ivPostImage;
-        btnSubmit = binding.btnSubmit;
-        btnFeed = binding.btnFeed;
+
+//        etDescription = binding.etDescription;
+//        ivPostImage = binding.ivPostImage;
+//        btnSubmit = binding.btnSubmit;
+        etDescription = view.findViewById(R.id.etDescription);
+        ivPostImage = view.findViewById(R.id.ivPostImage);
+        btnSubmit = view.findViewById(R.id.btnSubmit);
 
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -99,21 +99,10 @@ public class CaptureFragment extends Fragment {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description, currentUser, photoFile);
+                Toast.makeText(getContext(), "Image Successfully Posted!", Toast.LENGTH_LONG).show();
             }
         });
-        btnCaptureImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onLaunchCamera(v);
-            }
-        });
-        btnFeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent i = new Intent(getContext(), FeedActivity.class);
-                //startActivity(i);
-            }
-        });
+        onLaunchCamera(view);
     }
 
     public void onLaunchCamera(View view) {
@@ -191,8 +180,8 @@ public class CaptureFragment extends Fragment {
         });
     }
 
-    @Override public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+//    @Override public void onDestroyView() {
+//        super.onDestroyView();
+//        binding = null;
+//    }
 }

@@ -7,37 +7,28 @@
 
     <EditText
         android:id="@+id/etDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btnCaptureImg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etDescription"
-        android:text="Capture" />
+        android:layout_width="319dp"
+        android:layout_height="61dp"
+        android:layout_below="@id/ivPostImage"
+        android:layout_marginEnd="4dp"
+        android:layout_toStartOf="@id/btnSubmit" />
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@id/ivPostImage"
-        android:text="Submit" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="3dp"
+        android:text="@string/share"
+        android:textColor="#121517" />
 
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
-        android:layout_height="274dp"
-        android:layout_below="@id/btnCaptureImg"
+        android:layout_height="530dp"
+        android:layout_alignParentTop="true"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/btnFeed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSubmit"
-        android:layout_marginTop="219dp"
-        android:text="View Feed" />
 
 
 </RelativeLayout>

@@ -1,7 +1,9 @@
 package com.example.parstagram;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     private BottomNavigationView navBar;
     private Button btnLogout;
+    public Toolbar toolbar;
+//    ActionBar appBar = getSupportActionBar();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         navBar = binding.navBar;
         btnLogout = binding.btnLogout;
-
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,13 +58,16 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case action_feed:
                         fragment = new FeedFragment();
+                        item.setIcon(R.drawable.instagram_home_filled_24);
                         break;
                     case action_capture:
                         fragment = new CaptureFragment();
+                        item.setIcon(R.drawable.instagram_new_post_filled_24);
                         break;
                     case action_profile:
                     default:
                         fragment = new ProfileFragment();
+                        item.setIcon(R.drawable.instagram_user_filled_24);
                         break;
                 }
                 fragmentManager.beginTransaction().replace(fragment_placeholder, fragment).commit();

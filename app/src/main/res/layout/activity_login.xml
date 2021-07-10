@@ -11,10 +11,10 @@
         android:layout_width="287dp"
         android:layout_height="40dp"
         android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
+        android:backgroundTintMode="src_in"
         android:text="Log In"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="233dp" />
+        android:textAllCaps="false"
+        app:showAsAction="ifRoom" />
 
     <EditText
         android:id="@+id/etUsername"
@@ -24,16 +24,67 @@
         android:layout_alignStart="@id/btnLogin"
         android:layout_marginStart="0dp"
         android:layout_marginBottom="16dp"
-        android:hint="username" />
+        android:hint="Phone number, username, or email"
+        android:textSize="13sp" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="285dp"
         android:layout_height="42dp"
-        android:layout_above="@+id/btnLogin"
+        android:layout_above="@+id/btnForgotpw"
         android:layout_alignStart="@id/btnLogin"
         android:layout_marginStart="0dp"
-        android:layout_marginBottom="16dp"
-        android:hint="password"
-        android:inputType="textPassword" />
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="13sp" />
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="201dp"
+        android:layout_height="62dp"
+        android:layout_above="@+id/etUsername"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/nav_logo_whiteout" />
+
+    <Button
+        android:id="@+id/btnForgotpw"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_above="@+id/btnLogin"
+        android:layout_alignEnd="@+id/btnLogin"
+        android:layout_marginTop="-15dp"
+        android:layout_marginEnd="-10dp"
+        android:background="#00FFFFFF"
+        android:text="Forgot password?"
+        android:textAlignment="textEnd"
+        android:textAllCaps="false"
+        android:textColor="#2196F3"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:strokeColor="#7E7B7B" />
+
+    <TextView
+        android:id="@+id/tvNoAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_alignStart="@id/btnLogin"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="70dp"
+        android:text="Don't have an account?"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tvSignUP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_alignEnd="@id/btnLogin"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_toEndOf="@id/tvNoAccount"
+        android:text="Sign up."
+        android:textColor="@color/instaBlue"
+        android:textSize="10sp"
+        android:textStyle="bold" />
 </RelativeLayout>
